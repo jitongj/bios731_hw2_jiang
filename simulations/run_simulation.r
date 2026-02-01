@@ -184,3 +184,17 @@ purrr::pwalk(
   }
 )
 
+
+# **********************
+# 6. Combine and saveall data ----
+# **********************
+files <- list.files(out_dir, pattern = "\\.RData$", full.names = TRUE)
+
+all_results <- purrr::map_dfr(files, function(f) {
+  load(f)        
+  results_df
+})
+
+save(all_results, file = here::here("data", "all_results.RData"))
+
+

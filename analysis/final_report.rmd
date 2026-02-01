@@ -24,11 +24,9 @@ editor_options:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Github Link: 
+## Github Link:
 
-```         
-https://github.com/jitongj/bios731_hw2_jiang.git
-```
+<https://github.com/jitongj/bios731_hw2_jiang.git>
 
 ## 1.1
 
@@ -109,15 +107,10 @@ estimates in exchange for a large reduction in running time.
 
 ```{r message=FALSE, warning=FALSE}
 library(tidyverse)
+
 source(here::here("source", "05_compute_metric.R"))
-out_dir <- here::here("data", "simulation_scenarios")
+load(here::here("data", "all_results.RData"))
 
-files <- list.files(out_dir, pattern = "\\.RData$", full.names = TRUE)
-
-all_results <- purrr::map_dfr(files, function(f) {
-  load(f)        
-  results_df
-})
 
 metrics_df <- compute_metrics(all_results)
 
