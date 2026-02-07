@@ -65,6 +65,7 @@ source("simulations/run_simulation.R")
 
 This script will:
 	•	define the full factorial design (n, beta, error type)
+	
 	•	for each scenario:
 	•	simulate data using functions in source/01_simulate_data.R
 	•	fit the model using source/02_fit_model.R
@@ -76,25 +77,25 @@ This script will:
 
 ## Step 2: Render the report
 
-Knit:
-	•	analysis/final_report.Rmd → analysis/final_report.pdf
+**Knit:**
+* `analysis/final_report.Rmd` → `analysis/final_report.pdf`
 
-The report reads data/all_results.RData and produces:
-	•	Bias summary across scenarios/methods
-	•	Coverage summary across scenarios/methods
-	•	Distribution summaries for se_hat
-	•	Computation time comparisons
+The report reads `data/all_results.RData` and produces:
+* Bias summary across scenarios/methods
+* Coverage summary across scenarios/methods
+* Distribution summaries for se_hat
+* Computation time comparisons
 
-Key simulation settings
-	•	Full factorial factors:
-	•	Sample size: n ∈ {10, 50, 500}
-	•	True treatment effect: beta ∈ {0, 0.5, 2}
-	•	Error distribution: Normal vs heavy-tailed (t with df = 3, scaled)
-	•	Bootstrap parameters:
-	•	Outer bootstrap resamples: B
-	•	Inner bootstrap resamples: B_inner
-	•	Confidence level: 95%
+### Key simulation settings
+* **Full factorial factors:**
+    * Sample size: $n \in \{10, 50, 500\}$
+    * True treatment effect: $\beta \in \{0, 0.5, 2\}$
+    * Error distribution: Normal vs heavy-tailed ($t$ with $df = 3$, scaled)
+* **Bootstrap parameters:**
+    * Outer bootstrap resamples: $B$
+    * Inner bootstrap resamples: $B_{inner}$
+    * Confidence level: 95%
 
-Notes on outputs
-	•	Intermediate per-scenario files are saved in data/simulation_scenarios/
-	•	The combined object data/all_results.RData is the single input for analysis/final_report.Rmd
+### Notes on outputs
+* Intermediate per-scenario files are saved in `data/simulation_scenarios/`
+* The combined object `data/all_results.RData` is the single input for `analysis/final_report.Rmd`
